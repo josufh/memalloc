@@ -1,6 +1,20 @@
-#### Custom implementation of memory allocation functions.
+#### Custom implementation of memory allocation functions
 
-Use `gcc -o memalloc.so -fPIC -shared memalloc.c` to compile.
+This is an attempt to make my own memory allocation functions (malloc, calloc, realloc and free) using `sbrk()` in Linux.
 
-Use `export LD_PRELOAD=$PWD/memalloc.so` to use in Linux console.
-Use `unset LD_PRELOAD` to stop using it.
+Program compiles and runs as expected, may use it in future projects.
+
+
+Projects using this implementation:
+
+- None for now
+
+##### How to compile the library and source file
+
+From: https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index
+
+Create `/bin/static` folder and make the object with `gcc -c src/memalloc_j/memalloc_j.c -o bin/static/memalloc_j.o`
+
+Create the library with `ar rcs bin/static/libmemalloc_j.a bin/static/memalloc_j.o`
+
+Compile `main.c` with the bash file `compile.sh`
